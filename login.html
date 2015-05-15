@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Blog - Iniciar sesión</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<header>
+		</header>
+
+		<main>
+			<div class="form-container">
+				<h1>Iniciar sesión</h1>
+				<img id="profile-img" src="img/default_usr.png">
+
+				<form onsubmit="validateCredentials()" id="loginForm">
+					<input type="text" id="username" placeholder="Usuario" required>
+
+					<input type="password" id="password" placeholder="Contraseña" required>
+
+					<button type="submit" id="submit" class="btn-submit">Iniciar sesión</button>
+
+					<a href="register.html">Crear cuenta</a>
+				</form>
+			</div>
+		</main>
+
+		<footer>
+		</footer>
+
+		<script type="text/javascript" src="js/storage.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
+		<script type="text/javascript" src="js/auth.js"></script>
+		<script type="text/javascript">
+			loginForm.onsubmit = function (e) {
+				e.preventDefault();
+				auth.validateCredentials();
+			};
+		</script>
+	</body>
+</html>

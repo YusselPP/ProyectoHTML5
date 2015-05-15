@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Blog - Registrar</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<header>
+		</header>
+
+		<main>
+			<div class="form-container">
+				<h1>Crear cuenta</h1>
+				<form action="login.html" id="registerForm">
+					<input type="text" id="name" placeholder="Nombre" required>
+
+					<input type="text" id="last_name" placeholder="Apellido" required>
+
+					<input type="email" id="email" placeholder="Correo electrónico" required>
+
+					<input type="text" id="username" placeholder="Usuario" required>
+
+					<input type="password" id="password" placeholder="Contraseña" required>
+
+					<input type="password" id="password_confirm" placeholder="Confirmar contraseña" required>
+
+					<button class="btn-submit" type="submit" id="submit">Crear cuenta</button>
+				</form>
+			</div>
+		</main>
+
+		<footer>
+		</footer>
+
+		<script type="text/javascript" src="js/storage.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
+		<script type="text/javascript">
+			registerForm.onsubmit = function (e) {
+				e.preventDefault();
+				register();
+			};
+		</script>
+	</body>
+</html>
