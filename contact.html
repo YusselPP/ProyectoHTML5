@@ -34,7 +34,14 @@
 </head>
 
 <body>
-
+<script type="text/javascript" src="js/storage.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
+		<script type="text/javascript" src="js/auth.js"></script>
+		<script type="text/javascript">
+			// Si no se tiene una sesión activa redirige al login.
+			//auth.verifySession();
+		</script>
 	<!-- Prompt IE 6 and 7 users to install Chrome Frame:		chromium.org/developers/how-tos/chrome-frame-getting-started -->
 	<!--[if lt IE 8]>
 		<p class="chromeframe alert alert-warning">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
@@ -55,15 +62,16 @@
 	<nav class="main-navigation clearfix span12" role="navigation">
 		<h3 class="assistive-text">Main menu</h3>
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>
-				<a href="about.html">About</a>
-				<ul class="sub-menu">
+			<li class="current"><a href="index.html">Inicio</a></li>
+			
+			<li><a href="contact.html">Contacto</a></li>
+            <li>
+				<a href="login.html">Entrar</a>
+				<!--ul class="sub-menu">
 					<li><a href="#">Subpage</a></li>
 					<li><a href="#">Subpage 2</a></li>
-				</ul>
+				</ul-->
 			</li>
-			<li class="current"><a href="contact.html">Contact</a></li>
 		</ul>
 	</nav> <!-- #main-navigation -->
 
@@ -133,22 +141,22 @@
 	</form> <!-- .searchform.widget -->
 
 	<aside class="widget">
-		<h3 class="widget-title">Sidebar heading</h3>
+		<h3 class="widget-title">Ultimas publicaciones</h3>
 
 		<ul>
-			<li><a href="#">Li element</a></li>
-			<li><a href="#">Li element</a></li>
-			<li><a href="#">Li element</a></li>
-			<li>Li element</li>
-			<li><a href="#">Li element</a></li>
+			<li><a href="#">Publicaci&oacute;n 1</a></li>
+			<li><a href="#">Publicaci&oacute;n 2</a></li>
+			<li><a href="#">Publicaci&oacute;n 3</a></li>
+	
+			<li><a href="#">Publicaci&oacute;n 4</a></li>
 		</ul>
 	</aside> <!-- .widget -->
 
 	<aside class="widget">
-		<h3 class="widget-title">Widget</h3>
+	<h3 class="widget-title">Autor</h3>
 
-		<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
-		<p>One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis maximus pharetra. Proin elementum enim ex, sed suscipit odio congue et. Nulla malesuada arcu quam, sit amet sodales ante rutrum at. Sed venenatis sit amet diam non tempus. </p>
+		<p>Nulla eget sapien scelerisque, porta neque vel, sollicitudin nunc. Aenean eget urna venenatis, tempus justo nec, mollis urna. Integer suscipit est commodo turpis blandit finibus non eget ante. Pellentesque rhoncus, urna ac laoreet ultrices. </p>
 	</aside> <!-- .widget -->
 
 </div> <!-- #sidebar -->
@@ -158,9 +166,9 @@
 	<footer id="footer" role="contentinfo">
 		<!-- You're free to remove the credit link to Jayj.dk in the footer, but please, please leave it there :) -->
 		<p>
-			Copyright &copy; 2012 <a href="#">Sitename.com</a>
+			Copyright &copy; 2015 <a href="#">Sitename.com</a>
 			<span class="sep">|</span>
-			Design by <a href="http://jayj.dk" title="Design by Jayj.dk">Jayj.dk</a>
+			
 		</p>
 	</footer> <!-- #footer -->
 
