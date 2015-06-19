@@ -1443,3 +1443,20 @@ input[type="search"] {
     margin: 0 auto 25px;
   }
 }
+
+
+.user-link {
+  font: 700 15px "Merriweather", Georgia, serif;
+    display: block;
+}
+.user-link:hover {
+  text-decoration: none;
+}
+.user-link:hover .meta-nav {
+  margin-left: 5px;
+  -webkit-transition: margin-left 200ms ease-in-out;
+  -moz-transition: margin-left 200ms ease-in-out;
+  -ms-transition: margin-left 200ms ease-in-out;
+  -o-transition: margin-left 200ms ease-in-out;
+  transition: margin-left 200ms ease-in-out;
+}
