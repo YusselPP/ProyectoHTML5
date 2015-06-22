@@ -57,3 +57,7 @@ header {
 	border-radius: 50%;
 	box-sizing: border-box;
 }
+
+#btn_logout {
+	display: none;
+}

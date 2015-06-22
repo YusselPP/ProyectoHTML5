@@ -20,6 +20,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link href="style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
 	<!-- Load Open Sans and Merriweather from Google Fonts
 		For optimal performance, customize it to load the styles you need:
@@ -40,14 +41,6 @@
 	<!--[if lt IE 8]>
 		<p class="chromeframe alert alert-warning">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
 	<![endif]-->
-<script type="text/javascript" src="js/storage.js"></script>
-		<script type="text/javascript" src="js/db.js"></script>
-		<script type="text/javascript" src="js/user.js"></script>
-		<script type="text/javascript" src="js/auth.js"></script>
-		<script type="text/javascript">
-			// Si no se tiene una sesión activa redirige al login.
-			//auth.verifySession();
-		</script>
 	<header id="master-header" class="clearfix" role="banner">
 
 		<hgroup>
@@ -68,7 +61,8 @@
 			
 			<li><a href="contact.html">Contacto</a></li>
             <li>
-				<a href="login.html">Entrar</a>
+				<a id="btn_login" href="login.html">Iniciar sesión</a>
+				<a id="btn_logout" href="login.html">Cerrar sesión</a>
 				<!--ul class="sub-menu">
 					<li><a href="#">Subpage</a></li>
 					<li><a href="#">Subpage 2</a></li>
@@ -216,6 +210,21 @@
 	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
 
 	<!-- Load custom scripts -->
+	<script type="text/javascript" src="js/storage.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/auth.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		auth.getSession();
+
+		if(user){
+			document.getElementById('btn_login').style.display = 'none';
+			document.getElementById('btn_logout').style.display = 'block';
+		}
+
+		getLastPostsList(10, 0);
+	</script>
 </body>
 </html>
