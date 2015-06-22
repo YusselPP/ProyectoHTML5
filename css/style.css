@@ -9,7 +9,8 @@ header {
 
 .form-container {
 	width: 340px;
-	margin:0 auto;
+	margin:100px;
+	margin-left:300px;
 	padding: 35px;
 	border-radius: 10px;
 	background-color: #FAFAFA;
@@ -36,10 +37,10 @@ header {
 	}
 
 	.form-container .btn-submit{
-		border-width: 2px;
+		/*border-width: 2px;
 		background-color: Orange;
 		border-color: Orange;
-		color: White;
+		color: White;*/
 	}
 
 	.form-container a {
