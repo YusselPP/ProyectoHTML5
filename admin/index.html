@@ -1,19 +1,133 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Blog</title>
-	</head>
-	<body>
+<!-- Consider specifying the language of your content by adding the `lang` attribute to <html> -->
+<!--[if lt IE 7]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
 
+	<meta charset="utf-8">
 
-		<script type="text/javascript" src="js/storage.js"></script>
-		<script type="text/javascript" src="js/db.js"></script>
-		<script type="text/javascript" src="js/user.js"></script>
-		<script type="text/javascript" src="js/auth.js"></script>
+	<!-- Always force latest IE rendering engine & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!-- Put your title here! -->
+	<title></title>
+
+	<meta name="description" content="">
+
+	 <!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width">
+
+	<link href="../style.css" rel="stylesheet">
+
+	<!-- Load Open Sans and Merriweather from Google Fonts
+		For optimal performance, customize it to load the styles you need:
+		http://goo.gl/QufgJ
+	-->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Merriweather:400,700,900" rel="stylesheet">
+
+	<!-- All JavaScript at the bottom, except for Modernizr
+		Modernizr enables HTML5 elements & feature detects; It includes Respond, a polyfill for min/max-width CSS3 Media Queries
+		For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+	<script src="../js/modernizr-2.6.1.min.js"></script>
+    
+</head>
+
+<body>
+
+	<!-- Prompt IE 6 and 7 users to install Chrome Frame:		chromium.org/developers/how-tos/chrome-frame-getting-started -->
+	<!--[if lt IE 8]>
+		<p class="chromeframe alert alert-warning">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+	<![endif]-->
+<script type="text/javascript" src="../js/storage.js"></script>
+		<script type="text/javascript" src="../js/db.js"></script>
+		<script type="text/javascript" src="../js/user.js"></script>
+		<script type="text/javascript" src="../js/auth.js"></script>
 		<script type="text/javascript">
 			// Si no se tiene una sesión activa redirige al login.
-			auth.verifySession();
+			//auth.verifySession();
 		</script>
-	</body>
+	<header id="master-header" class="clearfix" role="banner">
+
+		<hgroup>
+			<h1 id="site-title"><a href="index.html" title="Your Site Name">BLOG</a></h1>
+			<h2 id="site-description">Proyecto para la materia HTML5</h2>
+		</hgroup>
+
+	</header> <!-- #master-header -->
+
+<div id="main" class="row clearfix">
+
+	<!-- Main navigation -->
+	<nav class="main-navigation clearfix span12" role="navigation">
+		<h3 class="assistive-text">Main menu</h3>
+		<ul>
+			<li class="current"><a href="index.html">Inicio</a></li>
+			
+			<li><a href="../contact.html">Contacto</a></li>
+            <li>
+				<a href="../index.html">Cerrar</a>
+				<!--ul class="sub-menu">
+					<li><a href="#">Subpage</a></li>
+					<li><a href="#">Subpage 2</a></li>
+				</ul-->
+			</li>
+		</ul>
+	</nav> <!-- #main-navigation -->
+
+<div id="content" role="main" class="span7">
+
+	
+
+</div> <!-- #content -->
+
+<div id="sidebar" role="complementary" class="span4">
+
+	<!-- Non-working search form -->
+	<form role="search" action="#" class="searchform">
+		<label class="assistive-text" for="s">Search for:</label>
+		<input type="search" name="s" id="s" results="10" placeholder="Search..." value="">
+		<input type="submit" value="Search">
+	</form> <!-- .searchform.widget -->
+
+	<aside class="widget">
+		<h3 class="widget-title">Publicaciones realizadas</h3>
+
+		<ul>
+			<li><a href="../post.html">Publicaci&oacute;n 1</a></li>
+			<li><a href="#">Publicaci&oacute;n 2</a></li>
+			<li><a href="#">Publicaci&oacute;n 3</a></li>
+	
+			<li><a href="#">Publicaci&oacute;n 4</a></li>
+		</ul>
+	</aside> <!-- .widget -->
+
+	<aside class="widget">
+		<h3 class="widget-title">Autor</h3>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis maximus pharetra. Proin elementum enim ex, sed suscipit odio congue et. Nulla malesuada arcu quam, sit amet sodales ante rutrum at. Sed venenatis sit amet diam non tempus. </p>
+		<p>Nulla eget sapien scelerisque, porta neque vel, sollicitudin nunc. Aenean eget urna venenatis, tempus justo nec, mollis urna. Integer suscipit est commodo turpis blandit finibus non eget ante. Pellentesque rhoncus, urna ac laoreet ultrices. </p>
+	</aside> <!-- .widget -->
+
+</div> <!-- #sidebar -->
+
+</div> <!-- #main -->
+
+	<footer id="footer" role="contentinfo">
+		<!-- You're free to remove the credit link to Jayj.dk in the footer, but please, please leave it there :) -->
+		<p>
+			Copyright &copy; 2012 <a href="#">Sitename.com</a>
+			<span class="sep">|</span>
+			
+		</p>
+	</footer> <!-- #footer -->
+
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+	<!-- Load custom scripts -->
+	<script src="js/script.js"></script>
+</body>
 </html>
