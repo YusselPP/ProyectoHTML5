@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html class="no-js">
 <head>
 
@@ -77,26 +76,26 @@
 				</p>
                 
                 <p>
-					<label for="etiquetas">Etiquetas</label>
-					<input type="text" name="etiquetas" id="etiquetas" class="input-xlarge">
+					<label for="tags">Etiquetas</label>
+					<input type="text" name="tags" id="tags" class="input-xlarge">
 					
 				</p>
 
 				<p>
-					<label for="content">Contenido<span class="required">(requerido)</span></label>
-					<textarea name="content" cols="50" rows="10" id="content" class="input-xxlarge" required placeholder="Escribe el contenido del post"></textarea>
+					<label for="post_content">Contenido<span class="required">(requerido)</span></label>
+					<textarea name="post_content" cols="50" rows="10" id="post_content" class="input-xxlarge" required placeholder="Escribe el contenido del post"></textarea>
                     
 				</p>
 
 				<p>
-					<label for="image">Imagen</label>
-                <input type="file" id="image" name="image" />
+					<label for="image">Imagen(url)</label>
+                	<input type="text" id="image" name="image" />
                     
 				</p>
 
 				<p>
-                    <button class="primary">Publicar</button>
-                    <button class="primary">Guardar</button>
+                    <button id="btn_publish" class="primary">Publicar</button>
+                    <button id="btn_save" class="primary">Guardar</button>
 				</p>
 
 				<p hidden id="response"></p>
@@ -120,7 +119,7 @@
 	</form> 
 
 	<aside class="widget">
-		<h3 class="widget-title">Ultimas publicaciones</h3>
+		<h3 class="widget-title">Últimas publicaciones</h3>
 
 		<ul>
 			<li><a href="#">Publicaci&oacute;n 1</a></li>
@@ -154,6 +153,30 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+	<!-- Load custom scripts -->
+	<script type="text/javascript" src="js/storage.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/auth.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>
+
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		auth.verifySession();
+
+		var btnPublish = document.getElementById('btn_publish');
+		btnPublish.onclick = function (e) {
+			e.preventDefault();
+			savePost('public');
+		};
+
+		var btnSave = document.getElementById('btn_save');
+		btnSave.onclick = function (e) {
+			e.preventDefault();
+			savePost('private');
+		};
+		
+	</script>
 </body>
 </html>
