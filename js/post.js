@@ -30,7 +30,7 @@ function getLastPostsList(limit, offset){
 	getVisiblePostsList(limit, offset, function(tx, result){
 
 		var contentDiv = document.getElementById('content');
-		contentDiv.innerHTML='';
+		//contentDiv.innerHTML='';
 		var resultLength = result.rows.length;
 
 		if(resultLength){
@@ -52,11 +52,11 @@ function getLastPostsList(limit, offset){
 
 				var htmlPost = createHTMLPost(post.id, post.title, body, post.image, post.date, post.author);
 
-				contentDiv.appendChild(htmlPost);
+				contentDiv.insertBefore(htmlPost, contentDiv.firstChild);
 			}
 		}
 		else{
-			contentDiv.innerHTML = 'No hay posts publicados.';
+			//contentDiv.innerHTML = 'No hay posts publicados.';
 		}
 
 	}, function(t, e){

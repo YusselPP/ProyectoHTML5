@@ -27,19 +27,19 @@ auth.validateCredentials = function () {
 		// Mensaje de error al acceder a la base de datos.
 		alert(e.message);
 	});
-}
+};
 
 // Crea la sesión del usuario
 auth.login = function(user){
 	storage.save('user', user);
 	window.location = 'index.html';
-}
+};
 
 // Cierra la sesión del usuario
 auth.logout = function(){
 	storage.delete('user');
 	window.location = 'login.html';
-}
+};
 
 // Si no se tiene una sesión activa redirige al login.
 auth.verifySession = function(){
@@ -49,4 +49,8 @@ auth.verifySession = function(){
 	if(!user){
 		window.location = 'login.html';
 	}
-}
+};
+
+auth.getSession = function(){
+	user = storage.get('user');
+};
