@@ -29,6 +29,8 @@ var db = openDatabase('blog', '1.0', 'Blog DB', 2 * 1024 * 1024);
             'body VARCHAR(5000) NOT NULL,'+
             'visibility VARCHAR(30) NOT NULL DEFAULT (\'public\'),'+
             'image VARCHAR(100),'+
+            'audio VARCHAR(100),'+
+            'video VARCHAR(100),'+
             'tags VARCHAR(30))'
         );
         tx.executeSql('CREATE TABLE IF NOT EXISTS '+TABLE_COMMENTS+' ('+
@@ -55,9 +57,9 @@ function createUser(username, password, name, last_name, email, callback, errorC
 }
 
 // Crea un nuevo post en la base de datos.
-function createPost(user_id, title, body, visibility, image, tags, callback, errorCallback){
+function createPost(user_id, title, body, visibility, image, tags, audio, video, callback, errorCallback){
     db.transaction(function (tx) {
-        tx.executeSql("INSERT INTO "+TABLE_POSTS+" (user_id, title, body, visibility, image, tags) VALUES (?,?,?,?,?,?)", [user_id, title, body, visibility, image, tags], callback, errorCallback);
+        tx.executeSql("INSERT INTO "+TABLE_POSTS+" (user_id, title, body, visibility, image, audio, video, tags) VALUES (?,?,?,?,?,?,?,?)", [user_id, title, body, visibility, image, audio, video, tags], callback, errorCallback);
     });     
 }
 
@@ -70,7 +72,7 @@ function getVisiblePostsList(limit, offset,callback, errorCallback){
 
 function getPostById(postID,callback, errorCallback){
     db.readTransaction(function (tx) {
-        tx.executeSql("SELECT posts.id,date,title,body,image,tags,username author FROM "+TABLE_POSTS+" posts JOIN "+TABLE_USERS+" users ON user_id = users.id WHERE posts.id = ?", [postID], callback, errorCallback);
+        tx.executeSql("SELECT posts.id,date,title,body,image,audio,video,tags,username author FROM "+TABLE_POSTS+" posts JOIN "+TABLE_USERS+" users ON user_id = users.id WHERE posts.id = ?", [postID], callback, errorCallback);
     });
 }
 

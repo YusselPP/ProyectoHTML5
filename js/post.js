@@ -7,6 +7,8 @@ function savePost(visibility){
 	var post_content = document.getElementById('post_content').value;
 	var tags = document.getElementById('tags').value;
 	var image = document.getElementById('image').value;
+	var audio = document.getElementById('audio').value;
+	var video = document.getElementById('video').value;
 
 	if(!title || !post_content){
 		alert('Es necesario llenar los campos requeridos.');
@@ -14,10 +16,10 @@ function savePost(visibility){
 		return;
 	}
 
-	createPost(user.id, title, post_content, visibility, image, tags, function(){
+	createPost(user.id, title, post_content, visibility, image, tags, audio, video, function(){
 
 		alert('Post publicado.');
-		window.location = 'admin/index.html';
+		window.location = 'index.html';
 
 	}, function(t, e){
 		// Mensajes de error al acceder a la base de datos.
@@ -29,7 +31,7 @@ function getLastPostsList(limit, offset){
 
 	getVisiblePostsList(limit, offset, function(tx, result){
 
-		var contentDiv = document.getElementById('content');
+		
 		//contentDiv.innerHTML='';
 		var resultLength = result.rows.length;
 
@@ -51,8 +53,15 @@ function getLastPostsList(limit, offset){
 				
 
 				var htmlPost = createHTMLPost(post.id, post.title, body, post.image, post.date, post.author);
+				var contentDiv = document.getElementById('content');
 
-				contentDiv.insertBefore(htmlPost, contentDiv.firstChild);
+				if(console.log(contentDiv.firstChild)){
+					contentDiv.insertBefore(htmlPost, contentDiv.firstChild);
+					//contentDiv.firstChild = htmlPost;
+				}
+				else {
+					contentDiv.appendChild(htmlPost);
+				}
 			}
 		}
 		else{
@@ -68,6 +77,8 @@ function getLastPostsList(limit, offset){
 function createHTMLPost(id, title, body, image, date, username){
 
 	var imageElement = '';
+	var audioElement = '';
+	var videoElement = '';
 	
 	if(image){
 		imageElement = '<img src="'+image+'" alt="Post thumbnail" class="thumbnail" />';
@@ -155,6 +166,27 @@ function getPost(){
 
 			if(post.image){
 				document.getElementById('post-image').innerHTML = '<img src="'+post.image+'" alt="Post thumbnail" class="thumbnail" />';
+			}
+
+			if(post.audio){
+				
+				var audioElement =
+					'<audio controls autoplay>'+
+		                '<source src="'+post.audio+'" type="audio/mpeg">'+
+		                'Tu navegador no soporta la reproducción de audio de html5'+
+		            '</audio>';
+
+		        document.getElementById('post-audio').innerHTML = audioElement;
+			}
+
+			if(post.video){
+				var videoElement =
+					'<video controls autoplay>'+
+		                '<source src="'+post.video+'" type="video/mp4">'+
+		                'Tu navegador no soporta la reproducción de video de html5'+
+		            '</video>';
+
+		        document.getElementById('post-video').innerHTML = videoElement;
 			}
 
 			document.getElementById('post-content').innerHTML = post.body;
