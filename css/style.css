@@ -962,7 +962,7 @@ input[type="search"] {
     visibility: hidden;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 585px) {
   /**
   	 * Make the navigation full width
   	 */
@@ -1059,4 +1059,8 @@ input[type="search"] {
 }
 #btn_logout {
   display: none;
+}
+
+.entry-content, .widget{
+  text-align: justify;
 }
