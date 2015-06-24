@@ -54,3 +54,12 @@ auth.verifySession = function(){
 auth.getSession = function(){
 	user = storage.get('user');
 };
+
+var btnLogout = document.getElementById('btn_logout');
+
+if(btnLogout){
+	btnLogout.onclick = function(e){
+		e.preventDefault();
+		auth.logout();
+	};
+}
