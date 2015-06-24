@@ -1394,6 +1394,7 @@ input[type="search"] {
   #sidebar {
     width: auto;
     float: none !important;
+    min-height: 300px;
   }
   .row [class*="span"] {
     float: none;
@@ -1417,7 +1418,7 @@ input[type="search"] {
     visibility: hidden;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 585px) {
   /**
   	 * Make the navigation full width
   	 */
@@ -1459,4 +1460,8 @@ input[type="search"] {
   -ms-transition: margin-left 200ms ease-in-out;
   -o-transition: margin-left 200ms ease-in-out;
   transition: margin-left 200ms ease-in-out;
+}
+
+#post-content, .entry-content, .widget{
+  text-align: justify;
 }

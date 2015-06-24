@@ -1,5 +1,5 @@
 "use strict"
-var PREVIEW_BODY_LENGTH = 100;
+var PREVIEW_BODY_LENGTH = 500;
 
 function savePost(visibility){
 
@@ -143,6 +143,7 @@ function getPost(){
 				else {
 					var pElement = document.createElement('p');
 
+					pElement.id = 'no-comments';
 					pElement.innerHTML = 'No hay comentarios.';
 					comments.appendChild(pElement);
 				}
@@ -199,6 +200,11 @@ function createComment(){
 
 	var commentsDiv = document.getElementById('post-comments');
 	commentsDiv.appendChild(pElement);
+
+	var nocommentsDiv = document.getElementById('no-comments');
+	if(nocommentsDiv){
+		commentsDiv.removeChild(nocommentsDiv);
+	}
 
 	createPostComment(postID, content, user.id, function(tx, result){
 
