@@ -25,14 +25,6 @@
 <body>
 
 	
-<script type="text/javascript" src="js/storage.js"></script>
-		<script type="text/javascript" src="js/db.js"></script>
-		<script type="text/javascript" src="js/user.js"></script>
-		<script type="text/javascript" src="js/auth.js"></script>
-		<script type="text/javascript">
-			// Si no se tiene una sesión activa redirige al login.
-			auth.verifySession();
-		</script>
 	<header id="master-header" class="clearfix" role="banner">
 
 		<hgroup>
@@ -52,7 +44,8 @@
 			<li class="current"><a href="publish.html">Publicar</a></li>
 			<li><a href="contact.html">Contacto</a></li>
             <li>
-				<a href="index.html">Cerrar</a>
+				<a id="btn_login" href="login.html">Iniciar sesión</a>
+				<a id="btn_logout" href="login.html">Cerrar sesión</a>
 			</li>
 		</ul>
 	</nav>
@@ -176,6 +169,11 @@
 			e.preventDefault();
 			savePost('private');
 		};
+
+		if(user){
+			document.getElementById('btn_login').style.display = 'none';
+			document.getElementById('btn_logout').style.display = 'block';
+		}
 		
 	</script>
 </body>
