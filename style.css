@@ -1,3 +1,20 @@
+/* ============================================================================= */
+/* ============================================================================= */
+/*
+ * Jayj HTML5, a free HTML5 And CSS3 Theme
+ * Version 2.1
+ * By Jesper J, http://jayj.dk
+ * Download for free at http://jayj.dk/a-free-html5-and-css3-theme/
+
+	Released under New BSD License
+	http://www.opensource.org/licenses/bsd-license.php
+
+	Copyright (c) 2009-2012, Jayj.dk
+	All rights reserved.
+*/
+.clearfix {
+  *zoom: 1;
+}
 .clearfix:before,
 .clearfix:after {
   display: table;
@@ -6,8 +23,19 @@
 .clearfix:after {
   clear: both;
 }
-
-
+.well {
+  min-height: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
 article,
 aside,
 details,
@@ -28,11 +56,16 @@ video {
   *display: inline;
   *zoom: 1;
 }
-
+audio:not([controls]) {
+  display: none;
+}
 [hidden] {
   display: none;
 }
-
+/* =============================================================================
+   Base
+   ========================================================================== */
+/* Apply a natural box layout model to all elements - http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -65,14 +98,26 @@ body {
   /* Background image and color */
 
   background-color: #ededed;
-  background-image: url(../images/bg.png);
+  background-image: url(images/bg.png);
   background-repeat: repeat;
   background-attachment: fixed;
   /* Fallback background image */
 
 }
-
-
+/**
+ * The selection color
+ * These selection declarations have to be separate
+ */
+::-moz-selection {
+  background: #bada55;
+  color: #000000;
+  text-shadow: none;
+}
+::selection {
+  background: #bada55;
+  color: #000000;
+  text-shadow: none;
+}
 /* =============================================================================
    Links
    ========================================================================== */
@@ -127,7 +172,17 @@ h2 {
   font-size: 24px;
   letter-spacing: -1px;
 }
-
+h4 {
+  border-bottom: 1px solid #ededed;
+  color: #f71570;
+  font: bold 16px "Open Sans", "Helvetica Neue", sans-serif;
+  padding-bottom: 8px;
+}
+h6 {
+  font-size: 12px;
+  color: #999999;
+  text-transform: uppercase;
+}
 /* Entry title */
 .entry-title {
   font-size: 32px;
@@ -151,10 +206,56 @@ h1.page-header {
 /* =============================================================================
    HTML elements
    ========================================================================== */
-
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+hr {
+  clear: both;
+  display: block;
+  height: 0;
+  border: 0;
+  border-bottom: 4px double #e0e0e0;
+  margin: 1em 0;
+  padding: 0;
+}
+ins {
+  background: #ffff99;
+  color: #000000;
+  text-decoration: none;
+}
+mark {
+  background: #ffff00;
+  color: #000000;
+  font-style: italic;
+  font-weight: bold;
+}
+small {
+  font-size: 85%;
+}
 /**
  * Position subscript and superscript content without affecting line-height: h5bp.com/k
  */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -195,18 +296,167 @@ nav ol {
   margin: 0;
   padding: 0;
 }
-
+dl {
+  margin: 0 0 25px 5px;
+}
+dt {
+  font-weight: bold;
+  margin: 10px 0 0 0;
+}
+dd {
+  margin: 0 0 0 40px;
+}
 /* =============================================================================
    Quotes
    ========================================================================== */
+blockquote {
+  border-left: 5px solid #049cdb;
+  margin: 40px 0;
+  padding: 5px 0 5px 20px;
+  position: relative;
+  /* Right-aligned blockquote */
 
+}
+blockquote p {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 0;
+}
+blockquote small {
+  display: block;
+  color: #999999;
+}
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+blockquote.alignright {
+  border-right: 5px solid #049cdb;
+  border-left: 0;
+  float: right;
+  padding-right: 20px;
+  padding-left: 0;
+}
+blockquote.alignright p,
+blockquote.alignright small {
+  text-align: right;
+}
+q {
+  quotes: none;
+}
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
 /* =============================================================================
    Code
    ========================================================================== */
 /**
  * Redeclare monospace font family: h5bp.com/j
  */
+pre,
+code,
+kbd,
+samp {
+  font: 1em Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+code {
+  color: #009933;
+}
+pre {
+  /* Blue stribes to make it look like paper */
 
+  background-color: #fefefe;
+  background-image: -moz-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -ms-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -webkit-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -o-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-size: 100% 26px;
+  box-shadow: inset 0 1px 1px #ffffff, 0 0 15px rgba(204, 204, 204, 0.35);
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  color: #222222;
+  font-size: 14px;
+  line-height: 26px;
+  padding: 26px 25px;
+  margin: 0 0 25px;
+  position: relative;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+pre code {
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+pre ol.linenums {
+  line-height: 26px;
+}
+/**
+ * Line numbering for the Google Prettify script
+ */
+/* Add to red stribes to make it look like a notebook */
+pre[class*="linenums"]:before {
+  border: 1px solid #f1e9ea;
+  border-width: 0 1px;
+  content: "";
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  z-index: 1;
+}
+ol.linenums {
+  color: #aeaeae;
+  margin: 0 0 0 0;
+  padding: 0 0 0 24px;
+}
+ol.linenums li {
+  padding-left: 24px;
+}
+/*  Google Code Prettify */
+.pln {
+  color: #000;
+}
+.str {
+  color: #008800;
+}
+.kwd {
+  color: #000088;
+}
+.com {
+  color: #880000;
+}
+.typ {
+  color: #660066;
+}
+.lit {
+  color: #006666;
+}
+.pun,
+.opn,
+.clo {
+  color: #666600;
+}
+pre .tag {
+  color: #000088;
+}
+.atn {
+  color: #660066;
+}
+.atv {
+  color: #008800;
+}
+.dec,
+.var {
+  color: #660066;
+}
+.fun {
+  color: #ff0000;
+}
 /* =============================================================================
    Embedded content
    ========================================================================== */
@@ -252,11 +502,82 @@ svg:not(:root) {
 /**
  * Figures
  */
-
+figure {
+  background: #333333;
+  border-radius: 5px;
+  color: #ffffff;
+  width: 100%;
+  padding: 20px;
+  margin: 25px 0;
+  text-align: center;
+}
+figure figcaption {
+  font: 14px "Merriweather", Georgia, serif;
+  margin: 21px 0 3px;
+}
+figure img {
+  border-radius: 0;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: none;
+}
 /* =============================================================================
    Tables
    ========================================================================== */
-
+table {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  border-radius: 4px;
+  border-spacing: 0;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+table th,
+table td {
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+}
+table th {
+  font-weight: bold;
+}
+table thead th {
+  vertical-align: bottom;
+}
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+table tr th:first-child,
+table tr td:first-child {
+  border-left: 0;
+}
+table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+table tfoot td {
+  background: #f5f5f5;
+  color: #666666;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 1px 0 #eee;
+}
+table caption {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 /* =============================================================================
    Forms
    ========================================================================== */
@@ -324,7 +645,19 @@ input {
 /*
  * Consistent box sizing and appearance
  */
-
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  *width: 13px;
+  *height: 13px;
+}
+input[type="color"] {
+  padding: 3px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+}
 input[type="search"] {
   -webkit-appearance: textfield;
 }
@@ -531,12 +864,22 @@ input[type="submit"].primary:active {
 /*
  * Disabled elements
  */
-
+.btn[disabled],
+button[disabled],
+input[disabled] {
+  cursor: not-allowed;
+  background-color: #ededed;
+  background-image: none !important;
+  color: #333333;
+  text-shadow: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+}
 /**
  * Search inputs
   */
 input[type="search"] {
-  background: #ffffff  no-repeat 8px center;
+  background: #ffffff url(images/search.png) no-repeat 8px center;
   padding-left: 22px;
 }
 .searchform {
@@ -583,7 +926,9 @@ input[type="search"] {
   padding: 40px;
   box-shadow: 0 2px 3px 0 rgba(204, 204, 204, 0.8);
 }
-
+.no-cssgradients #main {
+  background-color: #ffffff;
+}
 #content {
   margin-left: 0;
 }
@@ -617,6 +962,22 @@ input[type="search"] {
 .row .span12 {
   width: 99.99999998999999%;
   *width: 99.94680850063828%;
+}
+.row .span11 {
+  width: 91.489361693%;
+  *width: 91.4361702036383%;
+}
+.row .span10 {
+  width: 82.97872339599999%;
+  *width: 82.92553190663828%;
+}
+.row .span9 {
+  width: 74.468085099%;
+  *width: 74.4148936096383%;
+}
+.row .span8 {
+  width: 65.95744680199999%;
+  *width: 65.90425531263828%;
 }
 .row .span7 {
   width: 57.446808505%;
@@ -680,7 +1041,9 @@ input[type="search"] {
   -o-transform: scale(0.95);
   transform: scale(0.95);
 }
-
+#site-title img {
+  box-shadow: none;
+}
 #site-description {
   font-size: 19px;
   float: right;
@@ -749,7 +1112,30 @@ input[type="search"] {
 .main-navigation .current > a:hover {
   border-radius: 0 10px 0 10px;
 }
-
+.main-navigation .sub-menu {
+  display: none;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
+  min-width: 200px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+.main-navigation .sub-menu li {
+  float: none;
+  margin: 0;
+}
+.main-navigation .sub-menu a {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.main-navigation .sub-menu .sub-menu {
+  top: 0;
+  left: 100%;
+}
+.main-navigation li:hover > .sub-menu {
+  display: block;
+}
 /* =============================================================================
    Entries
    ========================================================================== */
@@ -842,16 +1228,16 @@ input[type="search"] {
 /* =============================================================================
    Widgets
    ========================================================================== */
-.publish {
+.widget {
   border-bottom: 4px double #ededed;
   position: relative;
   padding-bottom: 10px;
   margin-bottom: 25px;
 }
-.publish:last-child {
+.widget:last-child {
   border-bottom: none;
 }
-.publish li a:hover {
+.widget li a:hover {
   margin-left: 5px;
   -webkit-transition: margin-left 300ms linear;
   -moz-transition: margin-left 300ms linear;
@@ -859,7 +1245,9 @@ input[type="search"] {
   -o-transition: margin-left 300ms linear;
   transition: margin-left 300ms linear;
 }
-
+.well .widget-title {
+  margin-top: 5px;
+}
 /* =============================================================================
    Footer
    ========================================================================== */
@@ -879,12 +1267,76 @@ input[type="search"] {
   color: #f71570;
   text-shadow: none;
 }
-
+/* =============================================================================
+   Alert messages
+   ========================================================================== */
+.alert {
+  background-color: #ededed;
+  border-left: 5px solid #d9d9d9;
+  border-radius: 0 5px 5px 0;
+  color: #222222;
+  padding: 10px 14px;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.alert h4 {
+  border-bottom: 0;
+  color: inherit;
+  padding-bottom: 0;
+  margin: 10px 0;
+}
+.alert p + p {
+  margin-bottom: 5px;
+}
+.alert-warning {
+  background-color: #fef9c7;
+  border-color: #fcdd4a;
+  color: #3b3601;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #54b646;
+  color: #0d370d;
+}
+.alert-danger,
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ce838f;
+  color: #7a0b0a;
+}
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #049cdb;
+  color: #0c3346;
+}
+/* =============================================================================
+   Non-semantic helper classes
+   ========================================================================== */
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.clear {
+  clear: both;
+}
+.last {
+  margin-right: 0px;
+}
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
-
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
 .assistive-text {
   border: 0;
   clip: rect(0 0 0 0);
@@ -895,11 +1347,15 @@ input[type="search"] {
   position: absolute;
   width: 1px;
 }
-
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
 .invisible {
   visibility: hidden;
 }
-
+/* =============================================================================
+   Media queries
+   ========================================================================== */
 @media only screen and (max-width: 1260px) {
   /* Remove negative margins on post thumbnails and meta */
   .entry-meta,
@@ -917,7 +1373,9 @@ input[type="search"] {
     box-shadow: inset 0 2px 3px rgba(204, 204, 204, 0.6);
   }
 }
-
+/**
+ * Turn the layout into one column
+ */
 @media only screen and (max-width: 768px) {
   body {
     font-size: 16px;
@@ -936,6 +1394,7 @@ input[type="search"] {
   #sidebar {
     width: auto;
     float: none !important;
+    min-height: 300px;
   }
   .row [class*="span"] {
     float: none;
@@ -959,7 +1418,7 @@ input[type="search"] {
     visibility: hidden;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 585px) {
   /**
   	 * Make the navigation full width
   	 */
@@ -1003,67 +1462,6 @@ input[type="search"] {
   transition: margin-left 200ms ease-in-out;
 }
 
-/*body {
-	margin: 0;
-	font-family: arial,helvetica,sans-serif;
-}
-
-header {
-	height: 100px;
-}*/
-
-.form-container {
-	width: 340px;
-	margin:100px;
-	margin-left:auto;
-	margin-right:auto;
-	padding: 35px;
-	border-radius: 10px;
-	background-color: #FAFAFA;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-	box-sizing: border-box;
-}
-	.form-container h1 {
-		margin-top: 0;
-		box-sizing: border-box;
-		text-align: center;
-	}
-
-	.form-container input[type=text], input[type=password],
-	input[type=email], button{
-
-		width: 100%;
-		display: block;
-		border-radius: 5px;
-		padding: 8px;
-		margin: 14px 0;
-		font-size: 17px;
-		box-sizing: border-box;
-		border-width: 1px;
-	}
-
-	.form-container .btn-submit{
-		/*border-width: 2px;
-		background-color: Orange;
-		border-color: Orange;
-		color: White;*/
-	}
-
-	.form-container a {
-		text-align: center;
-		display: block;
-		font-size: 0.96em;
-	}
-
-#profile-img {
-	width: 96px;
-	height: 96px;
-	display: block;
-	margin: 0 auto 25px;
-	border-radius: 50%;
-	box-sizing: border-box;
-}
-
-#btn_logout {
-	display: none;
+#post-content, .entry-content, .widget{
+  text-align: justify;
 }

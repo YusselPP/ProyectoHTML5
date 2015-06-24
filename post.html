@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
 	
 <script type="text/javascript" src="js/storage.js"></script>
 		<script type="text/javascript" src="js/db.js"></script>
@@ -64,51 +63,49 @@
 
 		<header class="entry-header">
 			<h1 class="entry-title">
-				<a href="#" title="Post Heading" rel="bookmark">Post heading</a>
+				<a href="#" title="Post Heading" rel="bookmark" id="post-title">Post heading</a>
 			</h1>
 
-			<a href="#" title="Post Heading"><img src="images/200x200mountain.jpg" alt="Post thumbnail" class="thumbnail" /></a>
-		</header> 
+			<a href="#" title="Post Heading" id="post-image"></a>
+		</header> <!-- .entry-header -->
 
 		<div class="entry-content">
-			<p>
-				Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-				Separated they live in <a href="#">Bookmarksgrove right at the coast of the Semantics</a>, a large language ocean.
-				A small river named Duden flows by their place and supplies it with the necessary regelialia.
-				It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-			</p>
+			<div id="post-content">
+				<p>
+					Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+					Separated they live in <a href="#">Bookmarksgrove right at the coast of the Semantics</a>, a large language ocean.
+					A small river named Duden flows by their place and supplies it with the necessary regelialia.
+					It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+				</p>
 
-			<p>
-				Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.
-				One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-			</p>
-            <form>
+				<p>
+					Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.
+					One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+				</p>
+			</div>
+            <form id="comment-form">
                 <p>
                 <textarea name="commnet" cols="50" rows="3" id="comment" class="input-xxlarge" required placeholder="Escribe tu comentario"></textarea>
                 </p>
                 
                 <p>
-                    <button class="primary">Enviar comentario</button>
+                    <button id="btn_comment" class="primary">Enviar comentario</button>
                 </p>
             </form>
             
-            <div id="content" role="main" class="span7">
-                <h2>Comentarios</h2>
-                <p><a href="#" class="user-link">Nombre de usuario</a>Fusce tristique sit amet velit at vestibulum. Phasellus rutrum dapibus dolor, et auctor elit ullamcorper sit amet. Suspendisse consectetur posuere sagittis.</p>
-            
-                <p><a href="#" class="user-link">Nombre de usuario</a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at felis ac libero commodo cursus. Suspendisse sit amet ligula ac purus lobortis consectetur in hendrerit neque.</p>
-            
+            <h2>Comentarios</h2>
+            <div id="post-comments" role="main" class="span7">
             </div>
             
 		</div> 
         
 
 		<footer class="entry-meta">
-			Posted in <a href="#" rel="category">Category Name</a>
-			on <time class="entry-date" datetime="2012-06-25" pubdate>June 25 2012</time>
-			by <span class="author vcard"><a class="url fn n" href="#" title="View all posts by Author" rel="author">Author Name</a></span>
+			Publicado
+			el <time id="post-date" class="entry-date" datetime="2012-06-25" pubdate>June 25 2012</time>
+			por <span class="author vcard"><a id="post-author" class="url fn n" href="#" title="View all posts by Author" rel="author">Author Name</a></span>
 
-			<span class="edit-link"><a href="#" title="Edit entry">Edit &#9997;</a></span>
+			<span class="edit-link"><a href="#" title="Edit entry">Editar &#9997;</a></span>
 		</footer>
 
 	</article> 
@@ -126,7 +123,7 @@
 	</form>
 
 	<aside class="widget">
-		<h3 class="widget-title">Ultimas publicaciones</h3>
+		<h3 class="widget-title">Últimas publicaciones</h3>
 
 		<ul>
 			<li><a href="#">Publicaci&oacute;n 1</a></li>
@@ -160,6 +157,29 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+
+	<!-- Load custom scripts -->
+	<script type="text/javascript" src="js/storage.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/auth.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>
+
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		getPost();
+
+		auth.getSession();
+
+		if(!user){
+			document.getElementById('comment-form').style.display = 'none';
+		}
+
+		document.getElementById('btn_comment').onclick = function(e){
+			e.preventDefault();
+			createComment();
+		};
+
+	</script>
 </body>
 </html>
