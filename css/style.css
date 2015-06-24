@@ -78,7 +78,7 @@ body {
    Links
    ========================================================================== */
 a {
-  color: #f71570;
+  color: #000;
   text-decoration: none;
 }
 a:hover {
@@ -583,6 +583,7 @@ input[type="search"] {
   border-radius: 10px;
   padding: 40px;
   box-shadow: 0 2px 3px 0 rgba(204, 204, 204, 0.8);
+  margin-left: 60px;
 }
 
 #content {
@@ -659,7 +660,7 @@ input[type="search"] {
   float: left;
 }
 #site-title a {
-  color: #f71570;
+  color: #000;
   display: inline-block;
   font-size: 48px;
   font-weight: 900;
@@ -1042,13 +1043,7 @@ header {
 		border-width: 1px;
 	}
 
-	.form-container .btn-submit{
-		/*border-width: 2px;
-		background-color: Orange;
-		border-color: Orange;
-		color: White;*/
-	}
-
+	
 	.form-container a {
 		text-align: center;
 		display: block;
